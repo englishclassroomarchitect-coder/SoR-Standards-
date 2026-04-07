@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading the Standards Through Science of Reading — Grades 9–11</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  :root {
+    --navy: #0a1628;
+    --slate: #1e293b;
+    --steel: #334155;
+    --mid: #64748b;
+    --light: #94a3b8;
+    --pale: #cbd5e1;
+    --wash: #f1f5f9;
+    --white: #ffffff;
+    --teal: #0d9488;
+    --teal-light: #ccfbf1;
+    --teal-dark: #065f56;
+    --amber: #d97706;
+    --amber-light: #fef3c7;
+    --rose: #be123c;
+    --rose-light: #ffe4e6;
+    --violet: #6d28d9;
+    --violet-light: #ede9fe;
+    --blue: #1d4ed8;
+    --blue-light: #dbeafe;
+    --font-serif: 'Source Serif 4', Georgia, serif;
+    --font-sans: 'DM Sans', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--slate);
+    background: var(--wash);
+    line-height: 1.6;
+  }
+
+  /* LAYOUT */
+  .app {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    background: var(--navy);
+    color: var(--pale);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-header {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .sidebar-header h1 {
+    font-family: var(--font-serif);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-header p {
+    font-size: 12px;
+    color: var(--light);
+    line-height: 1.5;
+  }
+
+  .sidebar-section {
+    padding: 16px 0 8px;
+  }
+
+  .sidebar-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--mid);
+    padding: 0 24px 8px;
+  }
+
+  .nav-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    color: var(--pale);
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    font-weight: 400;
+    padding: 10px 24px 10px 24px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border-left: 3px solid transparent;
+    line-height: 1.4;
+  }
+
+  .nav-item:hover {
+    background: rgba(255,255,255,0.04);
+    color: var(--white);
+  }
+
+  .nav-item.active {
+    background: rgba(255,255,255,0.07);
+    color: var(--white);
+    font-weight: 600;
+    border-left-color: var(--teal);
+  }
+
+  .nav-item .nav-strand {
+    display: block;
+    font-size: 10px;
+    color: var(--mid);
+    margin-top: 2px;
+    font-weight: 500;
+  }
+
+  .nav-item.active .nav-strand {
+    color: var(--teal);
+  }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 16px 24px 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 11px;
+    color: var(--mid);
+    line-height: 1.5;
+  }
+
+  /* MAIN CONTENT */
+  .main {
+    padding: 48px 56px 80px;
+    max-width: 900px;
+  }
+
+  .main-header {
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--pale);
+  }
+
+  .strand-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  .strand-tag.morphology { background: var(--teal-light); color: var(--teal-dark); }
+  .strand-tag.background { background: var(--amber-light); color: var(--amber); }
+  .strand-tag.structure { background: var(--violet-light); color: var(--violet); }
+  .strand-tag.inference { background: var(--blue-light); color: var(--blue); }
+  .strand-tag.craft { background: var(--rose-light); color: var(--rose); }
+
+  .main-title {
+    font-family: var(--font-serif);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .main-subtitle {
+    font-size: 15px;
+    color: var(--mid);
+    font-style: italic;
+    font-family: var(--font-serif);
+  }
+
+  /* SECTIONS */
+  .section {
+    margin-bottom: 40px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--mid);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--pale);
+  }
+
+  .section p, .section li {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--steel);
+    margin-bottom: 12px;
+  }
+
+  .section li {
+    margin-bottom: 8px;
+    margin-left: 20px;
+  }
+
+  .section strong {
+    color: var(--slate);
+    font-weight: 600;
+  }
+
+  /* TEST EVIDENCE BOX */
+  .test-evidence {
+    background: var(--white);
+    border: 1px solid var(--pale);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+
+  .test-evidence .q-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--teal-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+  }
+
+  .test-evidence .q-text {
+    font-family: var(--font-serif);
+    font-size: 14.5px;
+    color: var(--navy);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .test-evidence .q-move {
+    font-size: 13px;
+    color: var(--steel);
+    line-height: 1.6;
+  }
+
+  /* STANDARDS PROGRESSION */
+  .progression {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .grade-card {
+    background: var(--white);
+    border: 1px solid var(--pale);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+
+  .grade-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .grade-card .verb-highlight {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  .grade-card p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--steel);
+    margin-bottom: 0;
+  }
+
+  .grade-card .standard-ref {
+    font-size: 11px;
+    color: var(--mid);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* HANDOFF */
+  .handoff {
+    background: var(--white);
+    border: 1px solid var(--pale);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+
+  .handoff h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .handoff p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .handoff .bridge-question {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--navy);
+    font-size: 14.5px;
+    padding: 10px 16px;
+    border-left: 3px solid var(--teal);
+    background: var(--teal-light);
+    border-radius: 0 6px 6px 0;
+    margin: 12px 0;
+  }
+
+  /* TEXT EXAMPLES */
+  .text-example {
+    background: var(--white);
+    border: 1px solid var(--pale);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+
+  .text-example h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .text-example .text-name {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--mid);
+    margin-bottom: 10px;
+  }
+
+  .text-example p {
+    font-size: 14px;
+  }
+
+  /* OVERVIEW PAGE */
+  .overview-intro {
+    font-family: var(--font-serif);
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--steel);
+    margin-bottom: 24px;
+  }
+
+  .overview-logic {
+    background: var(--white);
+    border: 1px solid var(--pale);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+  }
+
+  .overview-logic h3 {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .logic-chain {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .logic-step {
+    background: var(--navy);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+  }
+
+  .logic-arrow {
+    color: var(--mid);
+    font-size: 18px;
+  }
+
+  .note-box {
+    background: var(--amber-light);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--steel);
+  }
+
+  .note-box strong {
+    color: var(--amber);
+  }
+
+  .plan-cta {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-top: 32px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .plan-cta:hover { opacity: 0.92; }
+
+  .plan-cta h3 {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .plan-cta p {
+    font-size: 14px;
+    color: var(--pale);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  .plan-cta .cta-arrow {
+    font-size: 28px;
+    color: var(--teal);
+    flex-shrink: 0;
+    margin-left: 24px;
+  }
+
+  /* PLANNING TAB */
+  .grade-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .grade-btn {
+    padding: 10px 24px;
+    border: 2px solid var(--pale);
+    border-radius: 8px;
+    background: var(--white);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--steel);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .grade-btn:hover { border-color: var(--teal); color: var(--teal-dark); }
+  .grade-btn.active { background: var(--teal); border-color: var(--teal); color: var(--white); }
+
+  .plan-strand {
+    margin-bottom: 32px;
+    border: 1px solid var(--pale);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .plan-strand-header {
+    padding: 16px 20px;
+    background: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.15s ease;
+  }
+
+  .plan-strand-header:hover { background: var(--wash); }
+
+  .plan-strand-header h3 {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .plan-strand-header .toggle {
+    font-size: 18px;
+    color: var(--mid);
+    transition: transform 0.2s ease;
+  }
+
+  .plan-strand-header.open .toggle { transform: rotate(180deg); }
+
+  .plan-strand-body {
+    display: none;
+    padding: 0 20px 20px;
+    background: var(--white);
+  }
+
+  .plan-strand-body.open { display: block; }
+
+  .plan-question {
+    margin-bottom: 20px;
+  }
+
+  .plan-question label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .plan-question textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px 14px;
+    border: 1px solid var(--pale);
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.6;
+    resize: vertical;
+    transition: border-color 0.15s ease;
+  }
+
+  .plan-question textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+  }
+
+  .plan-rationale-toggle {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--teal-dark);
+    cursor: pointer;
+    margin-bottom: 6px;
+    font-weight: 500;
+    user-select: none;
+  }
+
+  .plan-rationale-toggle:hover { text-decoration: underline; }
+
+  .plan-rationale {
+    display: none;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--steel);
+    padding: 10px 14px;
+    background: var(--wash);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--pale);
+  }
+
+  .plan-rationale.open { display: block; }
+
+  .plan-rationale .std-ref {
+    font-size: 11px;
+    color: var(--mid);
+    font-style: italic;
+    margin-top: 6px;
+  }
+
+  .plan-depth-anchor {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--steel);
+    padding: 12px 16px;
+    border-left: 3px solid var(--teal);
+    background: var(--teal-light);
+    border-radius: 0 6px 6px 0;
+    margin: 8px 0 20px;
+    line-height: 1.6;
+  }
+
+  .save-indicator {
+    font-size: 12px;
+    color: var(--teal-dark);
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    margin-left: 8px;
+  }
+
+  .save-indicator.visible { opacity: 1; }
+
+  .plan-reset {
+    background: none;
+    border: 1px solid var(--pale);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--mid);
+    cursor: pointer;
+    margin-top: 24px;
+    transition: all 0.15s ease;
+  }
+
+  .plan-reset:hover { border-color: var(--rose); color: var(--rose); }
+
+  /* HIDDEN SECTIONS */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; }
+    .sidebar {
+      position: relative;
+      height: auto;
+      max-height: none;
+    }
+    .main { padding: 32px 24px 60px; }
+    .progression { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <h1>Reading the Standards Through Science of Reading</h1>
+    <p>Grades 9–11 Vertical Articulation<br>Cognitive Moves → Concepts → Curriculum</p>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Overview</div>
+    <button class="nav-item active" data-page="overview">
+      How to Read This Document
+      <span class="nav-strand">The Logic Chain</span>
+    </button>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Word Knowledge</div>
+    <button class="nav-item" data-page="morphology">
+      Morphology as a Reading Tool
+      <span class="nav-strand">SoR: Decoding → Word Structure</span>
+    </button>
+    <button class="nav-item" data-page="vocabulary">
+      Reading Word Meaning in Context
+      <span class="nav-strand">SoR: Vocabulary Depth</span>
+    </button>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Comprehension</div>
+    <button class="nav-item" data-page="background">
+      Background Knowledge as a Reading Tool
+      <span class="nav-strand">SoR: Background Knowledge</span>
+    </button>
+    <button class="nav-item" data-page="structure">
+      Analyzing Structural Purpose
+      <span class="nav-strand">SoR: Text Structure</span>
+    </button>
+    <button class="nav-item" data-page="inference">
+      Inference and Synthesis
+      <span class="nav-strand">SoR: Verbal Reasoning</span>
+    </button>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Planning</div>
+    <button class="nav-item" data-page="planning">
+      Plan a Unit
+      <span class="nav-strand">Save notes by grade + strand</span>
+    </button>
+  </div>
+
+  <div class="sidebar-footer">
+    Built from: 2024 English SOL, Understanding the Standards, Instructional Guides, EOC Practice Items, EOC Test Blueprint
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+<!-- ==================== OVERVIEW ==================== -->
+<div class="page active" id="overview">
+  <div class="main-header">
+    <div class="main-title">What This Document Does</div>
+    <div class="main-subtitle">Translating the 2024 English SOL through a science of reading lens for secondary curriculum design</div>
+  </div>
+
+  <p class="overview-intro">The 2024 English Standards of Learning were revised in alignment with the Virginia Literacy Act, which is built on science of reading principles. At the elementary level, this translation is well underway — phonics programs, decodable texts, structured literacy curricula. This document extends that translation to the secondary level for our department.</p>
+
+  <p class="overview-intro">The science of reading tells us that reading comprehension is the product of word recognition and language comprehension. At the high school level, word recognition becomes <strong>morphological awareness</strong> — understanding how words are built from meaningful parts. Language comprehension depends on <strong>vocabulary depth</strong>, <strong>background knowledge</strong>, <strong>text structure knowledge</strong>, and <strong>verbal reasoning</strong>. These aren't add-ons. They're what determine whether a student can make meaning from complex text.</p>
+
+  <div class="overview-logic">
+    <h3>The Logic Chain</h3>
+    <p style="font-size:14px;color:var(--steel);margin-bottom:16px;">Each section of this document follows the same sequence:</p>
+    <div class="logic-chain">
+      <span class="logic-step">Test Question</span>
+      <span class="logic-arrow">→</span>
+      <span class="logic-step">Cognitive Move</span>
+      <span class="logic-arrow">→</span>
+      <span class="logic-step">Concept</span>
+      <span class="logic-arrow">→</span>
+      <span class="logic-step">Standards</span>
+      <span class="logic-arrow">→</span>
+      <span class="logic-step">Progression</span>
+      <span class="logic-arrow">→</span>
+      <span class="logic-step">In Our Texts</span>
+    </div>
+    <p style="font-size:14px;color:var(--steel);margin-bottom:0;"><strong>The test question</strong> proves the cognitive move matters — it's what VDOE says students need to do. <strong>The cognitive move</strong> names what the brain is actually doing. <strong>The concept</strong> is the transferable idea students need. <strong>The standards</strong> show where this lives across grades 9–11. <strong>The progression</strong> traces what students need to be able to do at each level. <strong>In our texts</strong> shows where the concept naturally lives in what we already teach.</p>
+  </div>
+
+  <div class="note-box">
+    <strong>About the test data:</strong> This analysis is based on the 23 multiple-choice questions in the EOC Reading (2024) practice item set. The full EOC test has 45 operational items plus technology-enhanced items not available in the PDF. These 23 questions are a meaningful sample but not the complete picture. The proportions of cognitive moves may shift with the questions we can't see — but the moves themselves are grounded in the standards and are tested regardless of exact weighting.
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Problem This Addresses</div>
+    <p>The standards are written grade by grade, and the cognitive work is cumulative. Reading the standards at a single grade level shows what students should be able to do that year. Reading them across grade levels shows the trajectory — where students need to end up and what foundations support that arrival. This document reads the standards as trajectories, showing the full arc from where students need to arrive in 11th grade back through what begins in 9th.</p>
+    <p>The goal is to help each teacher see the depth available in their own grade level's standard, informed by the full arc. Seeing where the progression is going can reveal opportunities within a standard that might not be visible when reading it in isolation.</p>
+  </div>
+
+  <div class="plan-cta" id="overviewPlanCta">
+    <div>
+      <h3>Plan a Unit</h3>
+      <p>Select your grade level and use the design questions across all five strands. Your notes save automatically.</p>
+    </div>
+    <span class="cta-arrow">→</span>
+  </div>
+</div>
+
+<!-- ==================== MORPHOLOGY ==================== -->
+<div class="page" id="morphology">
+  <div class="main-header">
+    <span class="strand-tag morphology">SoR: Word Structure</span>
+    <div class="main-title">Morphology as a Reading Tool</div>
+    <div class="main-subtitle">Teaching students to see words as built from meaningful parts with traceable histories</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Test Evidence</div>
+    <div class="test-evidence">
+      <div class="q-label">Practice Test Q14</div>
+      <div class="q-text">"In this sentence, the word effaced means —"</div>
+      <div class="q-move"><strong>The move:</strong> The student uses surrounding context AND word structure to determine meaning of an unfamiliar word. A student who recognizes the root FACE/FACERE (to make/to do) and the prefix EF- (out) has a structural strategy beyond context clues alone.</div>
+    </div>
+    <div class="test-evidence">
+      <div class="q-label">Practice Test Q7</div>
+      <div class="q-text">"The author's word choice in this sentence highlights the idea that —"</div>
+      <div class="q-move"><strong>The move:</strong> The student analyzes how specific word choices ("facade had evaporated") create meaning. The word "facade" — from Italian facciata, from FACE (an outward appearance) — isn't just a synonym for "act." Its etymology carries the specific connotation of a building's front, an exterior that hides what's behind it. The word choice IS the characterization.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Concept</div>
+    <p>Morphology instruction teaches students that words are built from parts (roots, prefixes, suffixes) and that those parts carry consistent meaning across word families. At the secondary level, this isn't phonics — it's the grown-up version of decoding. A student who knows VIV- means "life" can work with "vivify" even without strong surrounding context. A student who knows MONERE means "to warn" reads "monster" differently in Frankenstein.</p>
+    <p>Morphology becomes a reading tool when students see that a word's history is part of what gives it meaning in a specific text. The etymology of a word is an interpretive resource.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Standards — What the Progression Says</div>
+    <div class="progression">
+      <div class="grade-card">
+        <h4>Grade 9</h4>
+        <div class="verb-highlight">Explain</div>
+        <p>Use structural analysis of roots, affixes, and etymology to <strong>explain</strong> the meanings of unfamiliar and complex words.</p>
+        <div class="standard-ref">9.RV.1.C</div>
+      </div>
+      <div class="grade-card">
+        <h4>Grade 10</h4>
+        <div class="verb-highlight">Clarify</div>
+        <p>Use structural analysis of roots, affixes, and etymology to <strong>clarify</strong> the meanings of unfamiliar and complex words.</p>
+        <div class="standard-ref">10.RV.1.C</div>
+      </div>
+      <div class="grade-card">
+        <h4>Grade 11</h4>
+        <div class="verb-highlight">Understand</div>
+        <p>Use structural analysis of roots, affixes, and etymology to <strong>understand</strong> the meanings of unfamiliar and complex words.</p>
+        <div class="standard-ref">11.RV.1.C</div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--steel);">The Instructional Guide at all three levels says vocabulary instruction should emphasize "roots, affixes, and etymology" and that teachers should "provide students time to explore and build background knowledge around the historical, social, and cultural contexts — especially when they have a substantial impact on author's vocabulary." Together, etymology and cultural context are the tools for teaching morphology as a reading tool. When these standards are taught in connection with each other, they become more powerful than when taught separately.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Cognitive Handoff — What Students Should Be Able to Do</div>
+
+    <div class="handoff">
+      <h4>Leaving 9th Grade</h4>
+      <p>Recognize that words are built from parts and that those parts carry consistent meaning across different words. Use morphological structure as one strategy for determining unfamiliar word meaning. Begin to see that knowing where a word comes from sometimes changes how you read it in a text.</p>
+      <p><strong>This is the noticing phase.</strong> Students develop the habit of looking inside words. They don't need to memorize root lists. They need enough examples that "words are built from parts" becomes an automatic perceptual habit.</p>
+    </div>
+
+    <div class="handoff">
+      <h4>Leaving 10th Grade</h4>
+      <p>Track morphological patterns across a text — noticing when the same root shows up in multiple words and asking what that pattern reveals. Use etymology not just to define unfamiliar words but to deepen interpretation of familiar ones. Connect a word's root to the thematic work of the text.</p>
+      <p><strong>This is the tracking and connecting phase.</strong> Students move from seeing individual words as built from parts to seeing patterns of related words across a text. The morpheme becomes a lens for reading.</p>
+    </div>
+
+    <div class="handoff">
+      <h4>Leaving 11th Grade</h4>
+      <p>Analyze why an author chose this word and not a synonym — using morphological knowledge to articulate the difference. Hold multiple words with similar surface meanings and explain the distinct weight each carries. Use the history of a word as evidence in literary analysis.</p>
+      <p><strong>This is the arguing with evidence from language itself phase.</strong> Morphological knowledge becomes a source of analytical evidence.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">In Our Texts</div>
+
+    <div class="text-example">
+      <h4>9th Grade</h4>
+      <div class="text-name">Romeo & Juliet</div>
+      <p>The root FAT- (from Latin fatum: "that which has been spoken") appears across the play — "fatal," "fate," "fateful." Students who learn that fate in its original Latin sense means something spoken into existence read the Prologue differently: it doesn't just predict the ending, it performs it. The act of speaking the Prologue is the act of sealing the fate. The Prologue's structure (telling the audience the ending) and its language (FAT- saturated) are making the same argument.</p>
+    </div>
+
+    <div class="text-example">
+      <h4>9th Grade</h4>
+      <div class="text-name">The Odyssey</div>
+      <p>The shift from Latin to Greek roots is itself a teaching opportunity. NOSTOS (return home) gives students "nostalgia" — literally the pain of returning. For students who think nostalgia means "happy memories," the etymology reframes the entire poem. Odysseus's journey isn't a fun adventure — it's a painful ache to get home. One root, one minute, more interpretive work than a week of plot summary.</p>
+    </div>
+
+    <div class="text-example">
+      <h4>10th Grade</h4>
+      <div class="text-name">Macbeth &amp; Frankenstein</div>
+      <p>VOC- (voice, call) generates "equivocation," "invocation," and "provoke" in Macbeth. Students who track VOC- across the play trace how its central concern — language that conceals rather than reveals — is built into the word choices themselves. MONERE (to warn) connects "monster," "demonstrate," and "premonition" in Frankenstein. If a monster is a warning sign, what is the creature warning about? The bridge root MORT- appears in both texts ("mortal," "murder" in Macbeth; "mortal," "immortal," "mortality" in Frankenstein), so students who tracked death-language in one text arrive at the other already sensitized.</p>
+    </div>
+
+    <div class="text-example">
+      <h4>11th Grade</h4>
+      <div class="text-name">The Crucible</div>
+      <p>Legal and religious vocabulary carries double meanings morphology makes visible. "Conviction" from CON- + VINCERE (to conquer completely) means both a legal judgment and a deeply held belief. That double root is the play's entire tension: personal convictions produce legal convictions. A student who can articulate that isn't doing vocabulary — they're doing literary analysis using language as evidence.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Design Questions for Unit Planning</div>
+
+    <div class="handoff">
+      <h4>9th Grade — When planning a unit, figure out:</h4>
+      <p><strong>Which words in this text have roots that would surprise students?</strong> You're looking for 2–3 moments where knowing the etymology visibly changes how students read a word they thought they already understood. Not a root list — a few high-impact moments.</p>
+      <p><strong>Where in the unit does the etymological reveal do the most interpretive work?</strong> Timing matters. Introducing FAT- (fatum = "that which has been spoken") before students read the Prologue of Romeo & Juliet changes their entire experience of that moment. The same information after Act 3 is trivia.</p>
+      <p><strong>How will students encounter the idea that words are built from parts — through discovery or instruction?</strong> Either can work, but both should be connected to the text, not taught as a standalone vocabulary lesson.</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students learn that "nostalgia" comes from NOSTOS (return home) + ALGOS (pain) and discuss how "the pain of returning" changes their understanding of why the Odyssey isn't an adventure story. One root, one conversation, a reframing of the entire text.</div>
+    </div>
+
+    <div class="handoff">
+      <h4>10th Grade — When planning a unit, figure out:</h4>
+      <p><strong>Which roots recur across the text, and what pattern does the recurrence create?</strong> A root that appears once is a vocabulary word. A root that appears five times across three scenes is a pattern — and the pattern is an argument the text is making at the level of language.</p>
+      <p><strong>Are there bridge roots connecting to what students encountered last year?</strong> If MORT- appeared in 9th grade and appears again now, that's not repetition — it's accumulation. Students who tracked death-language before arrive already sensitized.</p>
+      <p><strong>Where in the unit will students track morpheme patterns themselves, rather than receiving them from you?</strong> The cognitive shift at 10th grade is from "the teacher shows me something surprising about a word" to "I notice a pattern in how the author uses words with shared roots."</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students track VOC- (voice/call) across Macbeth — equivocation, invocation, provoke — and write about how the play's central concern (language that conceals) is built into the word choices themselves. They're not doing vocabulary. They're using morphology as a lens for analyzing the text's architecture.</div>
+    </div>
+
+    <div class="handoff">
+      <h4>11th Grade — When planning a unit, figure out:</h4>
+      <p><strong>Where does the text offer moments where two near-synonyms do different work?</strong> This is where the nuance standard (11.RV.1.D) lives in practice. Look for moments where the author's word choice matters precisely because a different word — one that means almost the same thing — would change the effect.</p>
+      <p><strong>How will students use morphological knowledge as evidence in analytical writing?</strong> By 11th grade, the goal is for students to argue that a word choice matters BECAUSE of where the word comes from — not as a fun fact but as part of a claim about what the author is doing.</p>
+      <p><strong>Where can students practice articulating shade — the difference between words that share a denotation?</strong> This needs to happen in discussion before it appears in writing. Students need to hear themselves say "those words mean the same thing but feel different" before they can explain why.</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students analyze "conviction" in The Crucible — from CON- + VINCERE (to conquer completely) — and argue that the word's double meaning (legal judgment + deeply held belief) IS the play's central tension. The shared etymology isn't decoration. It's evidence for an interpretive claim.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== VOCABULARY ==================== -->
+<div class="page" id="vocabulary">
+  <div class="main-header">
+    <span class="strand-tag morphology">SoR: Vocabulary Depth</span>
+    <div class="main-title">Reading Word Meaning in Context</div>
+    <div class="main-subtitle">Understanding what a word does here that it wouldn't do somewhere else</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Test Evidence</div>
+    <div class="test-evidence">
+      <div class="q-label">Practice Test Q1</div>
+      <div class="q-text">"In paragraph 1, the expression 'rhythm of their lives' suggests that people's lives were filled with —"</div>
+      <div class="q-move"><strong>The move:</strong> Interpret a figurative/connotative expression for what it implies beyond its literal meaning. This isn't vocabulary-as-definition — it's reading connotation and implication inside a specific sentence.</div>
+    </div>
+    <div class="test-evidence">
+      <div class="q-label">Practice Test Q21</div>
+      <div class="q-text">"In line 21, the speaker uses the word 'lush' when describing the patch of grass to —"</div>
+      <div class="q-move"><strong>The move:</strong> Analyze why a specific word matters in this specific context. The student has to see the contrast — "lush" against a desolate alley — and articulate what the word choice accomplishes that a different word wouldn't.</div>
+    </div>
+    <p style="font-size:14px;color:var(--steel);margin-top:12px;">Vocabulary questions on this test cluster into three distinct types: (1) use context to determine unfamiliar word meaning, (2) interpret figurative/connotative language for what it implies, and (3) analyze why a specific word choice matters in this spot. These are three different cognitive tasks that all live under "vocabulary." Together they account for roughly 22–26% of the practice set.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Concept</div>
+    <p>Connotation is not a fixed property of a word — it's the relationship between the word and everything around it. "Cold" in a weather report is denotative. "Cold" describing a person is connotative. "Cold" describing a person who just lost a child is doing something entirely different than "cold" describing a villain. The connotation lives in the context.</p>
+    <p>This means even the 9th grade standard — "discriminate between connotative and denotative meanings" — has more depth available than it might appear. The Understanding the Standards document defines connotation as "the emotional or social meaning/implication of the word" and gives "cool" as the example. Interpreting connotation fully requires reading the word inside its moment in a specific text — which is a reading skill that develops over time.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Standards — What the Progression Says</div>
+    <div class="progression">
+      <div class="grade-card">
+        <h4>Grade 9</h4>
+        <div class="verb-highlight">Discriminate</div>
+        <p><strong>Discriminate</strong> between the connotative and denotative meanings and interpret the connotation(s).</p>
+        <div class="standard-ref">9.RV.1.D</div>
+      </div>
+      <div class="grade-card">
+        <h4>Grade 10</h4>
+        <div class="verb-highlight">Discriminate</div>
+        <p><strong>Discriminate</strong> between the connotative and denotative meanings and interpret the connotation(s).</p>
+        <div class="standard-ref">10.RV.1.D</div>
+      </div>
+      <div class="grade-card">
+        <h4>Grade 11</h4>
+        <div class="verb-highlight">Analyze nuances</div>
+        <p><strong>Analyze the nuances</strong> in the meaning of words with similar denotations (e.g., clever, cunning, brainy).</p>
+        <div class="standard-ref">11.RV.1.D</div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--steel);">The shift from grades 9–10 to 11 is significant. For two years, students practice distinguishing connotation from denotation — a binary distinction. The 11th grade standard asks them to analyze nuances among words that share a denotation, which is a different perceptual skill. "What makes 'cunning' different from 'clever' when they technically mean the same thing?" requires sensitivity to shade that benefits from being developed before 11th grade, even though the standard formally names it there.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Cognitive Handoff</div>
+    <div class="handoff">
+      <h4>Leaving 9th Grade</h4>
+      <p>Distinguish between what a word literally means and what it implies in context. Recognize that the same word can carry different weight depending on where it appears. Begin noticing that authors choose specific words deliberately.</p>
+      <div class="bridge-question">What would change if the author had written "passionate" instead of "ardent"? "Obsessive" instead of "dedicated"?</div>
+      <p>Questions like this exceed the 9th grade standard but build the shade-sensitivity that 11th grade depends on.</p>
+    </div>
+    <div class="handoff">
+      <h4>Leaving 10th Grade</h4>
+      <p>Analyze how a word's connotation functions in a specific moment — what it does to characterization, tone, or theme. Connect word-level choices to larger patterns of meaning. See that connotation shifts depending on context — the same word does different work in different moments of the same text.</p>
+      <div class="bridge-question">Look at these three words the author uses to describe power. They all mean something similar — what's different about each one? What does the choice of this word in this moment tell you?</div>
+    </div>
+    <div class="handoff">
+      <h4>Leaving 11th Grade</h4>
+      <p>Hold multiple words with similar denotations and articulate the distinct connotative, historical, or rhetorical weight each carries. Use word choice analysis as evidence in argument — arguing that an author's selection of this word over its synonyms reveals something about intent, perspective, or strategy.</p>
+      <div class="bridge-question">Both writers argue for reform, but one uses "persistent" and the other uses "unrelenting." What's the difference in how they want to be perceived?</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">In Our Texts</div>
+    <div class="text-example">
+      <h4>9th Grade</h4>
+      <div class="text-name">Romeo & Juliet</div>
+      <p>Romeo's language shifts dramatically between his infatuation with Rosaline (Petrarchan clichés — "feather of lead," "bright smoke," "cold fire") and his encounter with Juliet (direct, specific, sensory). A 9th grader can notice the shift and describe what's different. That's the entry point: the same character uses language differently in two contexts, and the difference tells you something about what's real versus performed.</p>
+    </div>
+    <div class="text-example">
+      <h4>10th Grade</h4>
+      <div class="text-name">Frankenstein</div>
+      <p>Victor describes the Creature with language of disgust — "wretch," "daemon," "abortion." The Creature describes himself with language of longing — "benevolent," "sympathies," "affections." The same being, described by two narrators, in two completely different connotative registers. Students who notice this are reading unreliable narration through word choice.</p>
+    </div>
+    <div class="text-example">
+      <h4>11th Grade</h4>
+      <div class="text-name">The Great Gatsby</div>
+      <p>Fitzgerald uses "orgastic" (his coinage) in the final passage rather than any existing word. Nick's vocabulary throughout — "incorruptible dream," "foul dust," "gorgeous" applied to Gatsby — carries evaluative weight that reveals Nick's own position as much as Gatsby's character. A student who can analyze what Nick's word choices reveal about Nick (not just about Gatsby) is doing the 11th grade work.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Design Questions for Unit Planning</div>
+
+    <div class="handoff">
+      <h4>9th Grade — When planning a unit, figure out:</h4>
+      <p><strong>Where in this text does word choice reveal character, and would students notice without prompting?</strong> Often the most powerful connotation work comes from moments students would read past — a word that seems ordinary until you ask "why this word and not another?"</p>
+      <p><strong>Are there moments where the same word carries different weight in different scenes?</strong> A word that means one thing in Act 1 and something different in Act 5 teaches connotation as context-dependent better than any definition exercise.</p>
+      <p><strong>How will students experience the shift from "what does this word mean" to "what does this word do here"?</strong> That shift is the bridge between vocabulary instruction and literary analysis. It doesn't happen automatically — it needs a question that requires it.</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students compare Romeo's language about Rosaline (Petrarchan clichés: "feather of lead," "bright smoke") with his language about Juliet (direct, specific, sensory). They describe what the shift tells them about what's real versus performed — without the teacher naming the conclusion. The connotative register IS the characterization.</div>
+    </div>
+
+    <div class="handoff">
+      <h4>10th Grade — When planning a unit, figure out:</h4>
+      <p><strong>Where do different narrators or characters describe the same thing in different connotative registers?</strong> This is where connotation stops being about individual word meaning and becomes about perspective — two people looking at the same thing and choosing different words to describe it.</p>
+      <p><strong>Are there moments where a word's connotation shifts across the text?</strong> A word that starts neutral and accumulates negative weight (or vice versa) teaches students that connotation is built through context, not fixed in the dictionary.</p>
+      <p><strong>How will students practice naming what a word choice does to tone, characterization, or theme — explaining the mechanism?</strong> The 10th grade move is toward mechanism: "this word makes the reader distrust the narrator because..."</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students examine how Victor describes the Creature ("wretch," "daemon," "abortion") versus how the Creature describes himself ("benevolent," "sympathies," "affections"). The same being, two connotative registers. Students articulate what each register reveals about the speaker — which is unreliable narration read through word choice.</div>
+    </div>
+
+    <div class="handoff">
+      <h4>11th Grade — When planning a unit, figure out:</h4>
+      <p><strong>Where does the author's word choice reveal the author's position as much as the subject's?</strong> By 11th grade, students should see that how someone describes something tells you about the describer, not just the described.</p>
+      <p><strong>Where can students practice the "why this word and not its synonym" move in discussion before it appears in writing?</strong> Nuance analysis is a verbal skill before it's a written one. Students need to hear themselves make fine distinctions out loud.</p>
+      <p><strong>How will students use word choice analysis as evidence in argument — not as a separate vocabulary observation but integrated into a claim about the text?</strong></p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students analyze Nick's vocabulary in Gatsby — "incorruptible dream," "foul dust," "gorgeous" applied to Gatsby — and argue that Nick's word choices reveal more about Nick's own investment in the dream than about Gatsby's character. The narrator's vocabulary IS the evidence for a claim about the narrator.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== BACKGROUND KNOWLEDGE ==================== -->
+<div class="page" id="background">
+  <div class="main-header">
+    <span class="strand-tag background">SoR: Background Knowledge</span>
+    <div class="main-title">Background Knowledge as a Reading Tool</div>
+    <div class="main-subtitle">What the reader knows about the world the text came from determines what they can see in the text</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Test Evidence</div>
+    <div class="test-evidence">
+      <div class="q-label">Practice Test Q8</div>
+      <div class="q-text">"Why does the author include the flashback in paragraph 9?"</div>
+      <div class="q-move"><strong>The move:</strong> The passage ("The Intersection") is set during WWII. The flashback in paragraph 9 describes how Pearl Harbor changed Louise's life. A student who doesn't know what Pearl Harbor was, what the draft meant, or why young women went to work in factories can still identify that this is a flashback — but they can't fully analyze what it accomplishes, because the historical weight of the moment is invisible to them. The structural question is also a background knowledge question.</div>
+    </div>
+    <div class="test-evidence">
+      <div class="q-label">Practice Test Q5</div>
+      <div class="q-text">"Based on information in the selection, which statement represents the author's opinion?"</div>
+      <div class="q-move"><strong>The move:</strong> Distinguishing fact from opinion requires schema — knowing enough about a topic to recognize when a claim is verifiable versus evaluative. A student with no background knowledge about timekeeping can't judge whether "life in ancient times was simpler" is fact or opinion. Background knowledge is what makes critical reading possible.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Concept</div>
+    <p>Background knowledge is the most frequently referenced element across the standards and guidance documents. The guidance often frames it as something the teacher provides — pre-teach, pre-assess, fill gaps. There is also an opportunity to frame it as something students learn to build for themselves over time.</p>
+    <p>Background knowledge functions as a reading practice — a set of questions students can learn to ask about any text: What world did this come from? What was the author responding to? What did the original audience know that I don't? And how do the answers change what I see in the text?</p>
+    <p>The 11th grade Understanding the Standards document says it directly: "By eleventh grade, students need to <strong>already</strong> understand that no work of literature exists without context." Already. Before they get there.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Standards — What the Progression Says</div>
+    <div class="progression">
+      <div class="grade-card">
+        <h4>Grade 9</h4>
+        <div class="verb-highlight">Describe</div>
+        <p><strong>Describe</strong> how the historical or social function of a text depends on its context (e.g., cultural, situational, historical, geographical).</p>
+        <div class="standard-ref">9.RL.3.A</div>
+      </div>
+      <div class="grade-card">
+        <h4>Grade 10</h4>
+        <div class="verb-highlight">Explain &amp; Analyze</div>
+        <p><strong>Explain and analyze</strong> the influence of the historical and cultural context of a text on its form, style, characters, and point of view.</p>
+        <div class="standard-ref">10.RL.3.A</div>
+      </div>
+      <div class="grade-card">
+        <h4>Grade 11</h4>
+        <div class="verb-highlight">Explain + Analyze Reflection</div>
+        <p><strong>Explain</strong> the influence of context on form, style, and POV. <strong>Analyze</strong> how authors' attitudes, viewpoints, and beliefs reflect larger historical, social, or cultural contexts.</p>
+        <div class="standard-ref">11.RL.3.A + 11.RL.3.C</div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--steel);">Also embedded: DSR.D at all grades ("regularly engage in reading conceptually related texts to build knowledge and vocabulary — use this background knowledge as context for new learning") and RV.1.F ("explain the meaning of literary and classical allusions" — allusions are compressed background knowledge).</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Cognitive Handoff</div>
+    <div class="handoff">
+      <h4>Leaving 9th Grade</h4>
+      <p>Recognize that a text comes from somewhere — that the author's world shaped what they wrote. Describe, when given context, how that context changes what they see. Begin asking "what did the audience know that I don't?" as a reading question.</p>
+      <p><strong>This is the recognizing that context matters phase.</strong> The teacher's role is to create moments where context visibly changes interpretation — so students learn to expect and eventually seek out those moments.</p>
+      <div class="bridge-question">Why is Juliet's father so furious? What are we missing about this world that would make his reaction make sense?</div>
+    </div>
+    <div class="handoff">
+      <h4>Leaving 10th Grade</h4>
+      <p>Actively investigate a text's context through reading and research. Explain how a specific piece of context changes how the text works — not just that context matters, but what it does to form, style, character, or POV. Notice gaps in understanding as signals to seek context.</p>
+      <p><strong>This is the building and using context independently phase.</strong> Students move from receiving background knowledge to constructing it.</p>
+      <div class="bridge-question">Frankenstein was published anonymously in 1818. Mary Shelley added her name and revised the text in 1831. What changed, and what does that tell us about what she could and couldn't say as a woman in each moment?</div>
+    </div>
+    <div class="handoff">
+      <h4>Leaving 11th Grade</h4>
+      <p>Use context as evidence in analytical argument. Hold multiple contexts simultaneously — when the text was written, when it's set, what the author was responding to — and articulate how those layers interact. Evaluate how an author's position shapes what they can see and what they're blind to.</p>
+      <p><strong>This is the context as analytical argument phase.</strong></p>
+      <div class="bridge-question">The Crucible is set in 1692 but written in 1953. What did Miller change from the historical record, and what does each change accomplish for his argument about McCarthy?</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">In Our Texts</div>
+    <div class="text-example">
+      <h4>9th Grade</h4>
+      <div class="text-name">The Odyssey</div>
+      <p>The concept of xenia (guest-friendship) governs virtually every scene. The Cyclops isn't just a monster — he's a bad host, which in the Greek world violates divine law. Telemachus's journey in Books 1–4 is a tour of proper hospitality. When students learn xenia, the entire poem reorganizes around a framework they couldn't see before. That's the experience the teacher is designing for: the moment when context visibly transforms the text.</p>
+    </div>
+    <div class="text-example">
+      <h4>10th Grade</h4>
+      <div class="text-name">Macbeth</div>
+      <p>The play was written for James I — a Scottish king on the English throne who was fascinated by witchcraft and traced his lineage to Banquo. Students who research James I can explain why the witches' prophecy about Banquo's descendants matters politically, not just narratively. The play is simultaneously a drama and a political document — and students who can articulate that are doing 10.RL.3.A.</p>
+    </div>
+    <div class="text-example">
+      <h4>11th Grade</h4>
+      <div class="text-name">The Crucible</div>
+      <p>The Crucible demands students hold two contexts simultaneously. Salem is Salem, and Salem is also McCarthy's America. Miller's choices — which historical details to include, which to invent, which to alter — become visible when students ask: "Why did Miller change this? What does the change accomplish for his argument?" Background knowledge here becomes the foundation for evaluating an author's rhetorical strategy.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Design Questions for Unit Planning</div>
+
+    <div class="handoff">
+      <h4>9th Grade — When planning a unit, figure out:</h4>
+      <p><strong>What's the one piece of context that, when students learn it, visibly transforms how they read the text?</strong> You're designing for the "oh" moment — the point where a student's confusion resolves because they now know something about the world the text came from. Identify that moment before the unit starts.</p>
+      <p><strong>Where will students feel the gap between their world and the text's world — and how will that gap become a question rather than a barrier?</strong> Confusion is the signal, not the problem. The design move is making sure students have a way to turn "this doesn't make sense" into "what don't I know?"</p>
+      <p><strong>How much context will you provide versus how much will students encounter through reading?</strong> Some context must be pre-taught (you can't discover xenia from the text alone). But every piece of teacher-provided context should be followed by a return to the text: "Now read this scene again knowing that. What do you see now?"</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students learn xenia (Greek guest-friendship as divine law) and then re-read the Cyclops scene. They can now see that Polyphemus isn't just dangerous — he's a violator of the most sacred social code in the Greek world. The "oh" is visible. Students articulate what they see now that they couldn't see before. That meta-awareness — "context changed my reading" — is the skill being built.</div>
+    </div>
+
+    <div class="handoff">
+      <h4>10th Grade — When planning a unit, figure out:</h4>
+      <p><strong>What are the layers of context for this text, and which ones are most productive for analysis?</strong> Most texts have multiple relevant contexts (biographical, historical, scientific, literary, political). Not all are equally useful. Choose the 1–2 that most directly change how students read specific passages.</p>
+      <p><strong>Where in the unit will students build context themselves through research or reading?</strong> The 10th grade shift is toward student-constructed context. This means building in time and structure for investigation.</p>
+      <p><strong>How will students practice explaining what context does to the text — how knowing it changes interpretation?</strong> "This was written in 1818" is information. "Knowing this was written in 1818 changes how I read Victor's confidence in science because..." is analysis. Where does the unit ask for that second move?</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students research galvanism and the real experiments of the early 1800s, then re-read Victor's description of his studies. They write about how knowing the science was real (not fictional) changes whether Victor seems visionary or reckless. Context isn't backdrop — it's an interpretive lever that produces different readings depending on which context you apply.</div>
+    </div>
+
+    <div class="handoff">
+      <h4>11th Grade — When planning a unit, figure out:</h4>
+      <p><strong>Does this text require students to hold multiple contexts simultaneously, and how will you scaffold that?</strong> Some texts (The Crucible) demand dual context — when it was written AND when it's set AND what the author was responding to. Students need structure for holding these layers, not just exposure to them.</p>
+      <p><strong>Where will students use context as evidence in argument — as the substance of their analytical claim, appearing in body paragraphs?</strong></p>
+      <p><strong>How will students evaluate what an author's position allows them to see and what it makes them blind to?</strong> This is the most sophisticated context move — recognizing that every author writes from somewhere, and that "somewhere" has limits as well as advantages.</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students identify three historical details Miller changed from the Salem trial records and argue what each change accomplishes for his argument about McCarthyism. They analyze the gap between historical record and dramatic invention as evidence of authorial strategy. The historical research is the literary analysis.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TEXT STRUCTURE ==================== -->
+<div class="page" id="structure">
+  <div class="main-header">
+    <span class="strand-tag structure">SoR: Text Structure</span>
+    <div class="main-title">Analyzing Structural Purpose</div>
+    <div class="main-subtitle">Why did the author build it this way, and what does that choice accomplish?</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Test Evidence</div>
+    <div class="test-evidence">
+      <div class="q-label">Practice Test Q8</div>
+      <div class="q-text">"Why does the author include the flashback in paragraph 9?"</div>
+      <div class="q-move"><strong>The move:</strong> Recognize a structural choice (flashback) and analyze what it accomplishes narratively. This isn't identification — it's purpose analysis. The student must explain what the flashback does for the story that a chronological telling wouldn't.</div>
+    </div>
+    <div class="test-evidence">
+      <div class="q-label">Practice Test Q11</div>
+      <div class="q-text">"The author organizes information in paragraph 1 using explanation most likely to —"</div>
+      <div class="q-move"><strong>The move:</strong> Identify an organizational pattern and name its rhetorical purpose. The paragraph moves from desert → plants adapt → animals adapt → humans adapt. The student must see that structure as a choice and name what it accomplishes.</div>
+    </div>
+    <div class="test-evidence">
+      <div class="q-label">Practice Test Q22</div>
+      <div class="q-text">"The poet's use of the rhetorical question suggests that the speaker —"</div>
+      <div class="q-move"><strong>The move:</strong> Analyze how a rhetorical choice (the question form itself) reveals something about the speaker's inner life. The structure of the sentence IS the meaning.</div>
+    </div>
+    <p style="font-size:14px;color:var(--steel);margin-top:12px;">Author's structural purpose questions account for roughly 30% of the practice set — the single largest cluster. This is the most heavily tested cognitive move.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Concept</div>
+    <p>Text structure at the secondary level includes the choices an author makes about how to build a text — who tells it, where it starts, what the reader knows that the characters don't, whether the text acknowledges its own existence as a text. Each of these choices shapes meaning.</p>
+    <p>Key structural concepts students need across 9–11:</p>
+    <p><strong>In medias res</strong> — starting in the middle. What does the reader gain or lose by entering the story here instead of at the beginning?</p>
+    <p><strong>Frame and nested narration</strong> — a story containing other stories. The containing structure changes the meaning of what's contained.</p>
+    <p><strong>Unreliable narration</strong> — every narrator has a position, an interest, a reason for telling the story their way. Not just "this narrator is lying" but "what does this narrator's version reveal and conceal?"</p>
+    <p><strong>Dramatic irony</strong> — the audience knows something the characters don't, created by structural choices (prologues, soliloquies, retrospective narration). The gap between audience knowledge and character knowledge IS the experience of reading.</p>
+    <p><strong>Allegory / double context</strong> — a text operating on two levels simultaneously. The surface narrative and the argument underneath.</p>
+    <p><strong>Direct address / breaking the frame</strong> — when the text acknowledges its audience or its own status as a text.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Standards — What the Progression Says</div>
+    <div class="progression">
+      <div class="grade-card">
+        <h4>Grade 9</h4>
+        <div class="verb-highlight">Examine &amp; Explain</div>
+        <p><strong>Examine and analyze</strong> characteristics that distinguish literary forms and how differing structure contributes to meaning and style. <strong>Explain</strong> how word choices, syntax, tone, and voice shape meaning.</p>
+        <div class="standard-ref">9.RL.1.B + 9.RL.2.B</div>
+      </div>
+      <div class="grade-card">
+        <h4>Grade 10</h4>
+        <div class="verb-highlight">Analyze</div>
+        <p><strong>Analyze</strong> how authors structure texts to advance the plot, explaining how each event gives rise to the next or foreshadows a future event.</p>
+        <div class="standard-ref">10.RL.1.B</div>
+      </div>
+      <div class="grade-card">
+        <h4>Grade 11</h4>
+        <div class="verb-highlight">Evaluate &amp; Critique</div>
+        <p><strong>Evaluate</strong> how authors use word choices, syntax, tone, voice to convey intent and viewpoint. <strong>Critique</strong> how literary devices contribute to meaning.</p>
+        <div class="standard-ref">11.RL.2.B + 11.RL.2.C</div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--steel);">Note: The practice test mostly asks analyze-level questions about structure. The 11th grade standard uses the verbs evaluate and critique, which ask for an additional step — forming and defending a judgment about whether a structural choice works. Unit design at 11th grade can go beyond what the test format allows.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Cognitive Handoff</div>
+    <div class="handoff">
+      <h4>Leaving 9th Grade</h4>
+      <p>Recognize that how a story is told is a choice, and that the choice changes what you experience as a reader. Name structural features (in medias res, prologue, dramatic irony) not as labels but as choices with effects.</p>
+      <div class="bridge-question">The Prologue tells you Romeo and Juliet will die. Why would Shakespeare do that? What changes about your experience of watching the play when you already know the ending?</div>
+    </div>
+    <div class="handoff">
+      <h4>Leaving 10th Grade</h4>
+      <p>Analyze what structural choices accomplish — not just that they exist but what they do to the reader's relationship to the characters, the information, and the themes. Consider alternatives: what would change if the text were structured differently?</p>
+      <div class="bridge-question">You never hear the Creature's story without it passing through Victor's narration, which passes through Walton's letters. What does that nesting do? Whose version do you trust, and why does the structure make that question unavoidable?</div>
+    </div>
+    <div class="handoff">
+      <h4>Leaving 11th Grade</h4>
+      <p>Evaluate structural choices — make and defend a judgment about whether a choice works. Hold multiple structural layers simultaneously and articulate how they interact.</p>
+      <div class="bridge-question">Miller inserts historical essays directly into The Crucible, breaking the play's dramatic frame. Does that strengthen or weaken his argument? What does he gain by reminding you this is about history, and what does he lose by breaking the illusion?</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">In Our Texts</div>
+    <div class="text-example">
+      <h4>9th Grade</h4>
+      <div class="text-name">Romeo & Juliet + The Odyssey</div>
+      <p>Romeo & Juliet's Prologue is one moment doing three things simultaneously: structurally, it tells you the ending (creating dramatic irony for the entire play). Linguistically, it's saturated with FAT- — "fatal loins," "death-mark'd love" — and if students know fatum means "that which has been spoken," the Prologue is performing the fate it describes. Contextually, Elizabethan audiences understood spoken destiny as a real force. Structure, morphology, and background knowledge converge on fourteen lines. The Odyssey opens in medias res and then has the hero narrate his own journey to people who are deciding whether to help him. He's an interested narrator. The nonlinear structure isn't a stylistic flourish — it's a characterization move.</p>
+    </div>
+    <div class="text-example">
+      <h4>10th Grade</h4>
+      <div class="text-name">Macbeth + Frankenstein</div>
+      <p>Macbeth's soliloquies give the audience access to his interior that no other character has. The audience becomes the only entity that knows both what Macbeth does and what he thinks about it — which makes the audience complicit. Frankenstein's nested frame (Walton → Victor → Creature) means every voice is filtered through at least one other. The structure IS the argument about whose story gets told and who controls the narrative.</p>
+    </div>
+    <div class="text-example">
+      <h4>11th Grade</h4>
+      <div class="text-name">The Great Gatsby + The Crucible</div>
+      <p>Nick narrates Gatsby retrospectively — reconstructing events he only partially understood, choosing what to include and reveal. The structure makes Nick's judgment inseparable from the story itself. The Crucible operates as allegory (Salem = McCarthy's America), includes Miller's direct-address historical essays that break dramatic frame, and requires students to hold the gap between 1692 and 1953 as the space where the argument lives. This is the most structurally complex text in the curriculum because it demands holding multiple layers simultaneously.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Design Questions for Unit Planning</div>
+
+    <div class="handoff">
+      <h4>9th Grade — When planning a unit, figure out:</h4>
+      <p><strong>What structural choice does this text make that's unusual — and would students notice it without being told?</strong> Most 9th graders will read right past in medias res, a prologue that reveals the ending, or a hero narrating his own story. The first design move is deciding which structural feature to name and when.</p>
+      <p><strong>How will you frame structure as a choice rather than a label?</strong> The goal isn't "students can identify in medias res." It's "students can articulate what the author gains by starting here instead of at the beginning." Every structural concept should be taught through the question "what does this choice do?" not "what is this called?"</p>
+      <p><strong>Where can structural awareness and other strands converge on the same moment?</strong> The richest teaching moments are where structure, morphology, and context work simultaneously — like the Prologue of Romeo & Juliet doing structure (dramatic irony), language (FAT- roots), and cultural context (spoken fate) in fourteen lines.</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students read the Odyssey's opening and discuss: "The story doesn't start at the beginning. It starts with Odysseus stuck, and then he tells his own story to people he needs help from. What does that change? What would be different if we just followed him chronologically from Troy?" Students name at least one thing the structure does that a chronological telling wouldn't — that's the concept landing.</div>
+    </div>
+
+    <div class="handoff">
+      <h4>10th Grade — When planning a unit, figure out:</h4>
+      <p><strong>What does this text's structure make possible that a different structure wouldn't?</strong> Frankenstein's nesting makes every account suspect. Macbeth's soliloquies make the audience complicit. The focus is on what the structure produces.</p>
+      <p><strong>Where will students consider the counterfactual — what would change if this text were structured differently?</strong> "What would be lost if..." is the single most important bridge question to evaluative thinking. It forces students to hold the existing structure and an imagined alternative simultaneously.</p>
+      <p><strong>How will students connect this text's structural choices to structural choices they encountered in 9th grade?</strong> Odysseus narrating his own story and Victor narrating his own story through Walton are related moves. Students who see the connection aren't starting over — they're deepening a concept they already have.</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students discuss: "You never hear the Creature's story except through Victor, and you never hear Victor's story except through Walton. Pick one layer of that nesting and argue what it does — what would be different if that layer weren't there?" Students analyze what a specific structural choice accomplishes.</div>
+    </div>
+
+    <div class="handoff">
+      <h4>11th Grade — When planning a unit, figure out:</h4>
+      <p><strong>Does this text require students to hold multiple structural layers simultaneously, and how will you scaffold that?</strong> The Crucible's allegory (Salem = McCarthy), combined with Miller's direct-address essays and the gap between historical record and dramatic invention, asks students to hold three structural layers at once. That's cognitively demanding and needs scaffolding.</p>
+      <p><strong>Where will students evaluate whether a structural choice serves or complicates the author's purpose?</strong> The 11th grade standard uses the verbs evaluate and critique: "Does this structural choice serve the author's purpose, or does it create tension with it? Defend your position."</p>
+      <p><strong>How does the narrator's structural position become evidence for an argument about the text?</strong> Nick's retrospective narration in Gatsby is evidence that the story is filtered through a specific consciousness with specific investments.</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students argue for or against: "Miller's historical essays in The Crucible strengthen his argument by reminding the audience this really happened" versus "Miller's historical essays weaken the play by breaking the dramatic immersion that makes the audience feel the characters' fear." Students take a position, cite structural evidence, and defend their evaluation of the author's choice.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== INFERENCE ==================== -->
+<div class="page" id="inference">
+  <div class="main-header">
+    <span class="strand-tag inference">SoR: Verbal Reasoning</span>
+    <div class="main-title">Inference and Synthesis</div>
+    <div class="main-subtitle">Drawing conclusions beyond what's stated and connecting ideas across a text</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Test Evidence</div>
+    <div class="test-evidence">
+      <div class="q-label">Practice Test Q4</div>
+      <div class="q-text">"This selection supports all these statements about timekeeping EXCEPT —"</div>
+      <div class="q-move"><strong>The move:</strong> Hold the entire text in mind, evaluate four claims against it, and find the one that's NOT supported. This is inverse evidence gathering — high cognitive load, requiring synthesis across the full passage. The student must check each claim against available evidence and identify the gap.</div>
+    </div>
+    <div class="test-evidence">
+      <div class="q-label">Practice Test Q13</div>
+      <div class="q-text">"How do scientists know that the canals were dry at times?"</div>
+      <div class="q-move"><strong>The move:</strong> Trace an evidence-to-conclusion chain. The text says water plants are absent from canal sediments, and the student must connect that evidence to the conclusion. This is reading for logical reasoning — understanding how evidence works, not just what it says.</div>
+    </div>
+    <div class="test-evidence">
+      <div class="q-label">Practice Test Q19</div>
+      <div class="q-text">"Both selections express the idea that —"</div>
+      <div class="q-move"><strong>The move:</strong> Cross-text synthesis. Hold a literary and an informational text simultaneously and identify a shared abstract idea. This requires moving from surface details to underlying concepts in both texts and finding the intersection.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Concept</div>
+    <p>Inference is the act of drawing a conclusion the text supports but doesn't state directly. When students summarize rather than analyze, the gap is often about knowledge — they may be missing the vocabulary, background, or structural awareness that would let them see what's beneath the surface.</p>
+    <p>This is the strand where the science of reading insight matters most: inference depends on everything else. A student can't infer if they don't know the words (vocabulary), don't know the world (background knowledge), and can't see the structure (text structure). Inference is where the other strands converge.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Standards — What the Progression Says</div>
+    <div class="progression">
+      <div class="grade-card">
+        <h4>Grade 9</h4>
+        <div class="verb-highlight">Explain &amp; Distinguish</div>
+        <p><strong>Explain</strong> stated or implied themes. <strong>Distinguish</strong> among facts, reasoned judgments, and speculation. Draw evidence from texts to support claims and inferences.</p>
+        <div class="standard-ref">9.RL.1.A + 9.RI.1.C + 9.DSR.C</div>
+      </div>
+      <div class="grade-card">
+        <h4>Grade 10</h4>
+        <div class="verb-highlight">Analyze &amp; Evaluate</div>
+        <p><strong>Analyze</strong> development of universal themes. <strong>Evaluate</strong> how different authors shape viewpoints using facts, opinions, and reasoning.</p>
+        <div class="standard-ref">10.RL.1.A + 10.RI.3.A</div>
+      </div>
+      <div class="grade-card">
+        <h4>Grade 11</h4>
+        <div class="verb-highlight">Analyze &amp; Evaluate Quality</div>
+        <p><strong>Analyze</strong> development of universal themes in American literature of different eras. <strong>Evaluate the relevance and quality</strong> of an author's premises, claims, and evidence.</p>
+        <div class="standard-ref">11.RL.1.A + 11.RI.1.C</div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--steel);">The inference progression is less about new skills appearing and more about the complexity of what students hold in mind while inferring. A 9th grader infers within a single text. A 10th grader infers across texts and cultural contexts. An 11th grader evaluates the quality of inferences and evidence — both the author's and their own.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Cognitive Handoff</div>
+    <div class="handoff">
+      <h4>Leaving 9th Grade</h4>
+      <p>Draw conclusions from textual evidence that aren't directly stated. Distinguish between what a text says and what it implies. Begin recognizing that confusion often signals missing knowledge (background, vocabulary, structural) rather than inability to think.</p>
+      <div class="bridge-question">The text doesn't say Odysseus is lying to the Phaeacians. But what evidence would you point to if you wanted to argue he might be? What makes you suspicious?</div>
+    </div>
+    <div class="handoff">
+      <h4>Leaving 10th Grade</h4>
+      <p>Synthesize across sections, chapters, or paired texts to build an interpretation. Trace how evidence accumulates — not just finding one supporting quote but tracking a pattern across a full text. Evaluate whether evidence actually supports a claim or just seems related.</p>
+      <div class="bridge-question">Victor says the Creature is evil. The Creature says he was made evil by abandonment. What evidence in the text supports each claim? Is there evidence that contradicts either?</div>
+    </div>
+    <div class="handoff">
+      <h4>Leaving 11th Grade</h4>
+      <p>Evaluate the quality and sufficiency of evidence — both in the texts they read and in the arguments they construct. Hold competing interpretations and articulate what each explains well and what each misses. Recognize when an inference is well-supported versus when it's a reach.</p>
+      <div class="bridge-question">Nick calls Gatsby "great." Is the novel agreeing with Nick, or is the novel showing us something about Nick by letting him use that word? What's the evidence for each reading?</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">In Our Texts</div>
+    <div class="text-example">
+      <h4>9th Grade</h4>
+      <div class="text-name">Romeo & Juliet</div>
+      <p>The play never says "the adults failed these children." But the evidence is everywhere — the Friar's plan is reckless, the Nurse abandons Juliet, the parents are consumed by the feud. A 9th grader who can gather that evidence and articulate the implied argument is doing inference work that builds toward the analytical capacity the later grades require.</p>
+    </div>
+    <div class="text-example">
+      <h4>10th Grade</h4>
+      <div class="text-name">Frankenstein</div>
+      <p>The novel never directly says "Victor is wrong." It gives you his version and the Creature's version and asks you to hold both and draw your own conclusion. The inference work is built into the structure — the nested narration forces the reader to evaluate competing accounts without the text resolving the tension for them.</p>
+    </div>
+    <div class="text-example">
+      <h4>11th Grade</h4>
+      <div class="text-name">The Great Gatsby</div>
+      <p>The final paragraph of Gatsby is one of the most analyzed passages in American literature — and it works entirely through inference. "So we beat on, boats against the current, borne back ceaselessly into the past." The novel doesn't tell you what that means. It gives you an image, a rhythm, and a metaphor, and trusts you to bring everything you've learned across 180 pages to the act of interpretation. That's inference as the culminating reading skill.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Design Questions for Unit Planning</div>
+
+    <div class="handoff">
+      <h4>9th Grade — When planning a unit, figure out:</h4>
+      <p><strong>What does this text imply but never state — and is it something students could arrive at with the right question?</strong> The best inference work comes from moments where the text leaves a gap that's closeable with evidence and attention. Identify those gaps before the unit starts so you can design questions that lead students to them.</p>
+      <p><strong>Where will students practice the difference between "what the text says" and "what the text means"?</strong> This distinction is the foundation of all analytical reading. It needs to be made visible and practiced repeatedly — not assumed.</p>
+      <p><strong>How will you help students see that confusion is a signal to look harder, not a sign of failure?</strong> Many 9th graders stop reading when they're confused. The design move is normalizing "I don't understand this yet" as the beginning of inference, not the end of reading.</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students gather evidence for the claim "the adults failed Romeo and Juliet" — a conclusion the play never states. The Friar's reckless plan, the Nurse's abandonment, the parents' blindness to the feud's cost. Students learn that an argument can be powerfully supported by the text even when the text never makes it explicitly. That's inference as evidence-building.</div>
+    </div>
+
+    <div class="handoff">
+      <h4>10th Grade — When planning a unit, figure out:</h4>
+      <p><strong>Where does this text present competing accounts or perspectives that the reader must evaluate?</strong> Inference at the 10th grade level often means deciding what to believe when the text gives you conflicting information. Texts with unreliable narrators, competing perspectives, or ambiguous evidence are ideal.</p>
+      <p><strong>How will students practice tracing evidence across a full text rather than finding a single supporting quote?</strong> The 10th grade shift is from "find evidence for this claim" to "track a pattern across the text and articulate what it reveals." That requires reading with accumulation in mind.</p>
+      <p><strong>Where does the text leave something genuinely unresolved — and how will you design for students to sit with that rather than resolve it prematurely?</strong> Holding ambiguity is an inference skill. Texts that don't tell you the answer are teaching students that interpretation requires judgment, not just retrieval.</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students evaluate Victor's claim that the Creature is evil against the Creature's claim that he was made evil by abandonment. They gather evidence for both, identify evidence that complicates both, and articulate what the novel leaves unresolved. The inference work IS the analytical work — there's no "right answer" to retrieve, only interpretations to build and defend.</div>
+    </div>
+
+    <div class="handoff">
+      <h4>11th Grade — When planning a unit, figure out:</h4>
+      <p><strong>Where will students evaluate the quality of evidence — both the author's and their own?</strong> The 11th grade move is metacognitive: not just making inferences but assessing whether those inferences are well-supported or whether they're reaching beyond what the text actually provides.</p>
+      <p><strong>How will students hold competing interpretations and articulate what each one explains well and what each one misses?</strong> This is the highest-level inference work: recognizing that multiple readings can be valid but not equally well-supported, and having the tools to evaluate them.</p>
+      <p><strong>Where does the text reward a second or third reading — where the first reading produces one inference and subsequent readings complicate or overturn it?</strong> Design for re-reading as an inference practice, not just a comprehension strategy.</p>
+      <div class="bridge-question"><strong>Depth anchor:</strong> Students take a position on: "Nick calls Gatsby 'great.' Is the novel agreeing with Nick, or showing us something about Nick by letting him use that word?" They cite specific moments where Nick's narration supports or undermines his own assessment, and they evaluate the strength of each other's evidence. The conversation is about the quality of interpretive claims, not just their content.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- ==================== PLANNING ==================== -->
+<div class="page" id="planning">
+  <div class="main-header">
+    <div class="main-title">Plan a Unit</div>
+    <div class="main-subtitle">Select your grade level, then use the design questions to plan across strands. Your notes save automatically.</div>
+  </div>
+
+  <div class="grade-selector">
+    <button class="grade-btn active" data-grade="9">Grade 9</button>
+    <button class="grade-btn" data-grade="10">Grade 10</button>
+    <button class="grade-btn" data-grade="11">Grade 11</button>
+    <span class="save-indicator" id="saveStatus">Saved</span>
+  </div>
+
+  <div id="planContent"></div>
+
+  <button class="plan-reset" id="resetBtn">Clear all notes for this grade level</button>
+</div>
+
+</main>
+</div>
+
+<script>
+  const navItems = document.querySelectorAll('.nav-item');
+  const pages = document.querySelectorAll('.page');
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const target = item.getAttribute('data-page');
+      navItems.forEach(n => n.classList.remove('active'));
+      item.classList.add('active');
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById(target).classList.add('active');
+      document.querySelector('.main').scrollTo(0, 0);
+      window.scrollTo(0, 0);
+    });
+  });
+
+  const planData = {
+    morphology: {
+      title: "Morphology as a Reading Tool", tag: "Word Structure", page: "morphology",
+      grades: {
+        "9": {
+          questions: [
+            { text: "Which words in this text have roots that would surprise students — where knowing the etymology changes how they read the word?",
+              rationale: "EOC Practice Q14 asks students to determine the meaning of \"effaced\" using context and word structure. Q7 asks how \"facade\" (from FACE — an outward appearance) highlights a thematic idea. Both require reading below the surface of a word. Building that habit starts with moments where etymology visibly shifts interpretation.",
+              std: "9.RV.1.C — Use structural analysis of roots, affixes, and etymology to explain meanings" },
+            { text: "Where in the unit does the etymological information do the most interpretive work?",
+              rationale: "The Instructional Guide says vocabulary is \"dependent on the text\" and to \"plan for ways to build students' vocabulary and add to students' understanding of etymology.\" When etymological knowledge coincides with a key passage, it functions as an interpretive tool.",
+              std: "9.DSR.D — Use background knowledge as context for new learning" },
+            { text: "How will students encounter the idea that words are built from meaningful parts — through discovery, direct instruction, or both?",
+              rationale: "By 11th grade, students need to analyze nuances among words with similar denotations (11.RV.1.D). That skill depends on understanding that word parts carry meaning — a foundation built through repeated exposure starting in 9th grade.",
+              std: "9.RV.1.C → builds toward 11.RV.1.D" }
+          ],
+          anchor: "Students learn that \"nostalgia\" comes from NOSTOS (return home) + ALGOS (pain) and discuss how \"the pain of returning\" reframes why the Odyssey centers on homecoming."
+        },
+        "10": {
+          questions: [
+            { text: "Which roots recur across the text, and what pattern does the recurrence create?",
+              rationale: "EOC Q7 tests whether students can analyze how word choice highlights a thematic idea. Tracking recurring roots across a text builds the capacity to see word choice as pattern — a skill the test measures at the question level but that depends on sustained practice across full texts.",
+              std: "10.RV.1.C + 10.RL.2.C — Analyze how authors use specific word choices to convey intent" },
+            { text: "Are there roots connecting to what students encountered in 9th grade texts?",
+              rationale: "DSR.D at every grade level asks students to \"use background knowledge as context for new learning.\" Morphological knowledge that accumulates across years functions as background knowledge — a student who tracked MORT- in 9th grade arrives already sensitized to death-language in a new text.",
+              std: "10.DSR.D — Use background knowledge as context for new learning" },
+            { text: "Where in the unit will students track morpheme patterns themselves?",
+              rationale: "The shift from 9th to 10th grade moves from \"explain\" (9.RV.1.C) to student-driven analysis. The Instructional Guide says to provide \"multiple opportunities to encounter similar roots/affixes.\" Student-led tracking builds the analytical habit 11th grade formalizes.",
+              std: "10.RV.1.C + Instructional Guide planning guidance" }
+          ],
+          anchor: "Students track VOC- (voice/call) across Macbeth — equivocation, invocation, provoke — and write about how the play's central concern (language that conceals) appears in the word choices themselves."
+        },
+        "11": {
+          questions: [
+            { text: "Where does the text offer moments where two near-synonyms do different work?",
+              rationale: "11.RV.1.D explicitly asks students to \"analyze the nuances in the meaning of words with similar denotations (e.g., clever, cunning, brainy).\" EOC Q21 asks why the poet chose \"lush\" in a specific context. Morphological knowledge — understanding a word's roots and history — is one tool that makes nuance analysis possible.",
+              std: "11.RV.1.D — Analyze nuances in meaning of words with similar denotations" },
+            { text: "How will students use morphological knowledge as evidence in analytical writing?",
+              rationale: "11.RL.2.B asks students to \"evaluate how authors use specific word choices to convey the author's intent and viewpoint.\" Etymology gives students a grounded way to explain why a word choice matters — moving beyond impression to evidence rooted in language itself.",
+              std: "11.RL.2.B — Evaluate how authors use specific word choices to convey intent" },
+            { text: "Where can students practice articulating shade — the difference between words that share a denotation — in discussion?",
+              rationale: "The Understanding the Standards document gives the example of \"clever, cunning, brainy.\" This kind of discrimination develops through conversation — hearing yourself and others articulate fine distinctions — before it can reliably appear in written analysis.",
+              std: "11.RV.1.D + 11.C collaboration standards" }
+          ],
+          anchor: "Students analyze \"conviction\" in The Crucible — from CON- + VINCERE (to conquer completely) — and argue that the word's double meaning (legal judgment + deeply held belief) reflects the play's central tension."
+        }
+      }
+    },
+    vocabulary: {
+      title: "Reading Word Meaning in Context", tag: "Vocabulary Depth", page: "vocabulary",
+      grades: {
+        "9": {
+          questions: [
+            { text: "Where in this text does word choice reveal character?",
+              rationale: "EOC Q1 asks what \"rhythm of their lives\" suggests. Q6 asks students to identify tone from word-level cues. Both require noticing what language does, which starts with learning to pay attention to word choice as meaningful.",
+              std: "9.RV.1.D — Discriminate between connotative and denotative meanings" },
+            { text: "Are there moments where the same word carries different weight in different scenes?",
+              rationale: "The Instructional Guide says students should \"use context and sentence structure to determine meanings, distinguish between connotation and denotation.\" A word that shifts across contexts teaches that connotation is context-dependent — foundational for 11th grade nuance work (11.RV.1.D).",
+              std: "9.RV.1.B + 9.RV.1.D → builds toward 11.RV.1.D" },
+            { text: "How will students practice moving from \"what does this word mean\" to \"what does this word do here\"?",
+              rationale: "EOC Q21 asks why the speaker uses the word \"lush\" — a question about function. That shift from meaning to function connects vocabulary work to literary analysis. 9.RL.2.B asks students to \"explain how word choices shape the meaning of the text.\"",
+              std: "9.RV.1.D + 9.RL.2.B — Explain how word choices shape meaning" }
+          ],
+          anchor: "Students compare Romeo's language about Rosaline (Petrarchan clichés) with his language about Juliet (direct, sensory). They describe what the shift reveals."
+        },
+        "10": {
+          questions: [
+            { text: "Where do different narrators or characters describe the same thing in different language?",
+              rationale: "EOC Q7 asks how word choice highlights a thematic idea about character. 10.RL.2.C asks students to \"analyze how authors use specific word choices to convey the author's intent.\" Comparing how different voices use different registers is a direct path into this standard.",
+              std: "10.RL.2.C — Analyze how authors use specific word choices to convey intent" },
+            { text: "Are there moments where a word's connotation shifts or accumulates across the text?",
+              rationale: "10.RV.1.D asks students to \"discriminate between connotative and denotative meanings and interpret the connotation(s).\" Tracking how a word's weight changes across a full text deepens this from a single-moment skill to a sustained reading practice.",
+              std: "10.RV.1.D + 10.RV.1.B" },
+            { text: "How will students practice naming what a word choice does — explaining the mechanism?",
+              rationale: "The verb shift from 9th grade \"explain\" to 10th grade \"analyze\" (RL.2.C) means students trace how an effect is created. The test asks for mechanism — Q7 asks how word choice \"highlights\" an idea, requiring explanation of the connection between word and interpretation.",
+              std: "10.RL.2.C — Analyze how authors use word choices" }
+          ],
+          anchor: "Students examine how Victor describes the Creature versus how the Creature describes himself. The same being, two registers. Students articulate what each reveals about the speaker."
+        },
+        "11": {
+          questions: [
+            { text: "Where does the author's word choice reveal the author's (or narrator's) position as much as the subject's?",
+              rationale: "11.RL.2.B asks students to \"evaluate how authors use specific word choices to convey the author's intent and viewpoint.\" The word \"viewpoint\" is key — by 11th grade, students see that word choices reveal the chooser's perspective.",
+              std: "11.RL.2.B — Evaluate how authors use word choices to convey intent and viewpoint" },
+            { text: "Where can students practice the \"why this word and not its synonym\" move in discussion?",
+              rationale: "11.RV.1.D: \"analyze the nuances in the meaning of words with similar denotations (e.g., clever, cunning, brainy).\" Practicing orally develops the perceptual sensitivity the standard describes.",
+              std: "11.RV.1.D — Analyze nuances in meaning" },
+            { text: "How will students use word choice analysis as evidence integrated into a claim?",
+              rationale: "The EOC includes an Integrated Reading and Writing component requiring analytical writing. 11.W standards require \"valid reasoning and relevant evidence.\" Word choice analysis becomes evidence when students argue that a specific word reveals something about intent or position.",
+              std: "11.RL.2.B + 11.W.1 — Writing with evidence" }
+          ],
+          anchor: "Students analyze Nick's vocabulary in Gatsby and argue that his word choices reveal as much about Nick's investment in the dream as about Gatsby's character."
+        }
+      }
+    },
+    background: {
+      title: "Background Knowledge as a Reading Tool", tag: "Background Knowledge", page: "background",
+      grades: {
+        "9": {
+          questions: [
+            { text: "What context, when students learn it, visibly transforms how they read the text?",
+              rationale: "EOC Q8 asks why the author includes a WWII flashback — a question requiring historical context to fully analyze. 9.RL.3.A asks students to \"describe how the function of a text depends on its context.\" Designing for the moment where context visibly shifts interpretation teaches students that context is a reading tool.",
+              std: "9.DSR.D + 9.RL.3.A — Describe how the function of a text depends on its context" },
+            { text: "Where will students feel the gap between their world and the text's world?",
+              rationale: "9.RL.3.A asks students to describe how function depends on context including \"cultural, situational, historical, geographical.\" Students can only describe this if they've experienced the shift — the moment where learning context changed what they could see.",
+              std: "9.RL.3.A — Describe how function depends on context" },
+            { text: "How much context will you provide versus how much will students encounter through reading?",
+              rationale: "The Instructional Guide says to \"provide students time to explore and build background knowledge.\" The word \"explore\" suggests student engagement with context. The return to the text is where context becomes a reading tool.",
+              std: "9.DSR.D + Instructional Guide" }
+          ],
+          anchor: "Students learn xenia (Greek guest-friendship as divine law) and re-read the Cyclops scene. They articulate what they see now that they couldn't before."
+        },
+        "10": {
+          questions: [
+            { text: "What are the layers of context for this text — and which 1-2 are most productive for analysis?",
+              rationale: "10.RL.3.A asks students to \"explain and analyze the influence of the historical and cultural context on form, style, characters, and point of view.\" The Understanding the Standards specifies historical context as \"the time period\" and cultural context as \"geographical area, religious or moral beliefs, economic conditions, hierarchy of power, political influences.\" Choosing which layers to foreground is a design decision.",
+              std: "10.RL.3.A + Understanding the Standards, Grade 10" },
+            { text: "Where in the unit will students build context themselves through research or reading?",
+              rationale: "The Instructional Guide says students should \"explore the historical, cultural, or geographical context.\" The shift toward student-constructed context prepares for 11th grade, where 11.RL.3.C asks students to independently analyze how context shapes authorial perspective.",
+              std: "10.RL.3.A → builds toward 11.RL.3.C" },
+            { text: "How will students practice explaining what context does to the text — how knowing it changes interpretation?",
+              rationale: "The verb pairing in 10.RL.3.A is \"explain and analyze\" — both require articulating the relationship between context and text. The standard asks about influence on \"form, style, characters, and point of view\" — each is a specific channel through which context shapes the reading experience.",
+              std: "10.RL.3.A — Explain and analyze the influence of context" }
+          ],
+          anchor: "Students research galvanism, then re-read Victor's description of his studies. They write about how knowing the science was real changes whether Victor seems visionary or reckless."
+        },
+        "11": {
+          questions: [
+            { text: "Does this text require students to hold multiple contexts simultaneously? How will you scaffold that?",
+              rationale: "11.RL.3.A + 11.RL.3.C ask students to explain context's influence and analyze how authors' attitudes reflect larger contexts. The Understanding the Standards says: \"By eleventh grade, students need to already understand that no work of literature exists without context.\" When a text has multiple relevant contexts, students need scaffolding to hold them simultaneously.",
+              std: "11.RL.3.A + 11.RL.3.C + Understanding the Standards, Grade 11" },
+            { text: "Where will students use context as evidence in argument — appearing in body paragraphs?",
+              rationale: "11.RI.1.C asks students to \"evaluate the relevance and quality of an author's premises, claims, and evidence by corroborating or challenging them with other information.\" When historical context becomes that \"other information,\" students are using context as an analytical tool.",
+              std: "11.RI.1.C + 11.W.1 — Writing with evidence" },
+            { text: "How will students evaluate what an author's position allows them to see and what it limits?",
+              rationale: "11.RL.3.C: \"analyze how authors' attitudes, viewpoints, and beliefs reflect larger historical, social, or cultural contexts.\" The word \"reflect\" implies context shapes perspective — which means every perspective has limits as well as advantages.",
+              std: "11.RL.3.C — Analyze how authors' attitudes reflect larger contexts" }
+          ],
+          anchor: "Students identify three historical details Miller changed from the Salem trial records and argue what each change accomplishes for his argument about McCarthyism."
+        }
+      }
+    },
+    structure: {
+      title: "Analyzing Structural Purpose", tag: "Text Structure", page: "structure",
+      grades: {
+        "9": {
+          questions: [
+            { text: "What structural choice does this text make that students might read past without noticing?",
+              rationale: "EOC Q8 asks \"Why does the author include the flashback?\" Q11 asks about organizational purpose. Both require seeing structure as deliberate. 9.RL.1.B asks students to \"examine and analyze the characteristics that distinguish literary forms and how structure contributes to meaning and style.\"",
+              std: "9.RL.1.B — Examine and analyze how structure contributes to meaning" },
+            { text: "How will you frame structure as a choice with effects?",
+              rationale: "The test asks about purpose: \"Why does the author include...\" (Q8), \"most likely to\" (Q11). The standard says \"contributes to its meaning and style.\" Both point toward understanding structure as producing effects.",
+              std: "9.RL.1.B + 9.RL.2.B — Explain how choices shape meaning" },
+            { text: "Where can structural awareness converge with other strands on the same moment in the text?",
+              rationale: "The Instructional Guide integrates standards across strands in its planning tables. When structure, language, and context converge on one moment, students experience how reading strands work together.",
+              std: "9.RL.1.B + 9.RV.1.C + 9.RL.3.A — Integrated planning per Instructional Guide" }
+          ],
+          anchor: "Students discuss the Odyssey's opening: \"The story starts with Odysseus stuck, then he narrates his own story to people deciding whether to help him. What would be different if we followed him chronologically from Troy?\""
+        },
+        "10": {
+          questions: [
+            { text: "What does this text's structure make possible that a different structure wouldn't?",
+              rationale: "10.RL.1.B: \"analyze how authors structure texts to advance the plot, explaining how each event gives rise to the next.\" The verb \"analyze\" requires understanding the relationship between structural choice and effects.",
+              std: "10.RL.1.B — Analyze how authors structure texts" },
+            { text: "Where will students consider what would change if this text were structured differently?",
+              rationale: "The shift from \"explain\" (9th) to \"analyze\" (10th) to \"evaluate\" (11th) means students need to develop capacity for judgment. Counterfactual questions build that capacity by requiring students to hold the existing text and an imagined alternative simultaneously.",
+              std: "10.RL.1.B → builds toward 11.RL.2.B (evaluate) and 11.RL.2.C (critique)" },
+            { text: "How will students connect this text's structural choices to ones they encountered in 9th grade?",
+              rationale: "DSR.D asks students to \"use background knowledge as context for new learning.\" Structural knowledge from previous texts functions as background knowledge — a student who analyzed one narrator's self-interest has schema for analyzing another.",
+              std: "10.DSR.D + 10.RL.1.B" }
+          ],
+          anchor: "Students discuss: \"You never hear the Creature's story except through Victor, and Victor's except through Walton. Pick one layer and argue what it does — what would be different without it?\""
+        },
+        "11": {
+          questions: [
+            { text: "Does this text require students to hold multiple structural layers simultaneously?",
+              rationale: "11.RL.2.C: \"critique how authors use key literary devices to contribute to the meaning of a text.\" When a text operates through allegory, frame-breaking, and historical adaptation simultaneously, critique requires holding and evaluating multiple layers.",
+              std: "11.RL.2.C — Critique how authors use literary devices" },
+            { text: "Where will students evaluate whether a structural choice serves or complicates the author's purpose?",
+              rationale: "11.RL.2.B uses the verb \"evaluate.\" The Instructional Guide says Grade 11 students should \"evaluate authorial choices.\" Evaluation requires a position: does this choice work?",
+              std: "11.RL.2.B — Evaluate how authors use choices to convey intent" },
+            { text: "How does the narrator's structural position become evidence for an argument about the text?",
+              rationale: "11.RL.1.B: \"describe how a particular sentence, chapter, scene, or stanza fits into the overall structure.\" When the narrator's position is itself a structural choice, understanding that position becomes evidence for claims about meaning.",
+              std: "11.RL.1.B + 11.RL.2.B" }
+          ],
+          anchor: "Students argue: \"Miller's historical essays strengthen his argument by grounding it in real events\" versus \"they weaken the play by breaking dramatic immersion.\" Students take a position and cite evidence."
+        }
+      }
+    },
+    inference: {
+      title: "Inference and Synthesis", tag: "Verbal Reasoning", page: "inference",
+      grades: {
+        "9": {
+          questions: [
+            { text: "What does this text imply without stating — and could students arrive at it with the right question?",
+              rationale: "EOC Q4 asks students to evaluate four claims against the full text and find the unsupported one. Q16 asks for character inference from accumulated detail. 9.RL.1.A: \"explain stated or implied themes\" — the word \"implied\" means the text supports the conclusion without directly stating it.",
+              std: "9.RL.1.A — Explain stated or implied themes" },
+            { text: "Where will students practice the difference between what a text says and what it means?",
+              rationale: "9.DSR.C asks students to \"draw several pieces of evidence to support claims, conclusions, and inferences.\" The word \"inferences\" distinguishes this from summary. Practicing this distinction is foundational for all analytical reading.",
+              std: "9.DSR.C — Draw evidence to support claims, conclusions, and inferences" },
+            { text: "How will you help students see that confusion can signal missing knowledge — a starting point for looking harder?",
+              rationale: "9.DSR.E: \"use reading strategies when encountering challenging sections of text.\" The Instructional Guide specifies \"asking questions of the text.\" When students recognize that confusion has sources (vocabulary, context, structure), they can select the right strategy.",
+              std: "9.DSR.E — Use reading strategies for challenging sections" }
+          ],
+          anchor: "Students gather evidence for \"the adults failed Romeo and Juliet\" — a conclusion the play never states. The Friar's reckless plan, the Nurse's abandonment, the parents' blindness."
+        },
+        "10": {
+          questions: [
+            { text: "Where does this text present competing accounts or perspectives that the reader must evaluate?",
+              rationale: "EOC Q19 asks students to identify a shared idea across two texts — requiring abstraction from surface to underlying concepts. 10.RI.3.A: \"evaluate how different authors shape viewpoints.\" Within a single text, competing perspectives create the same evaluative demand.",
+              std: "10.RI.3.A — Evaluate how different authors shape viewpoints" },
+            { text: "How will students practice tracing evidence across a full text rather than finding a single quote?",
+              rationale: "10.DSR.C asks students to \"draw several pieces of evidence\" — the word \"several\" is important. Questions like EOC Q4 (evaluate four claims against the full text) and Q9 (how details contribute to the whole) reflect pattern-tracing across a full text.",
+              std: "10.DSR.C — Draw several pieces of evidence" },
+            { text: "Where does the text leave something genuinely unresolved?",
+              rationale: "10.RL.1.A: \"analyze the development of universal themes.\" Themes in complex texts often hold tension rather than resolving it. Practicing with ambiguity develops the capacity for evaluative work in 11th grade.",
+              std: "10.RL.1.A → builds toward 11.RI.1.C (evaluate quality of evidence)" }
+          ],
+          anchor: "Students evaluate Victor's claim versus the Creature's claim. They gather evidence for both, identify complications, and articulate what the novel leaves unresolved."
+        },
+        "11": {
+          questions: [
+            { text: "Where will students evaluate the quality of evidence — both the author's and their own?",
+              rationale: "11.RI.1.C: \"evaluate the relevance and quality of an author's premises, claims, counterclaims, and evidence by corroborating or challenging them with other information.\" The Instructional Guide says to model \"objectively evaluating sources by analyzing how main ideas, claims, perspective, and biases may have influenced the content.\"",
+              std: "11.RI.1.C — Evaluate relevance and quality of premises, claims, and evidence" },
+            { text: "How will students hold competing interpretations and articulate what each explains well and what each misses?",
+              rationale: "11.RL.1.A: \"analyze the development of universal themes prevalent in American literature of different eras.\" When themes are complex, multiple interpretations are possible — but not equally well-supported. Practicing this discrimination is the highest level of inference work.",
+              std: "11.RL.1.A + 11.RI.1.C" },
+            { text: "Where does the text reward re-reading — where subsequent readings complicate initial inferences?",
+              rationale: "DSR.A across grades asks students to read \"with meaningful expression in successive readings to support comprehension.\" The phrase \"successive readings\" points toward re-reading as a comprehension practice. Texts that reward re-reading build this capacity.",
+              std: "11.DSR.A — Successive readings to support comprehension" }
+          ],
+          anchor: "Students take a position: \"Nick calls Gatsby 'great.' Is the novel agreeing with Nick, or showing us something about Nick by letting him use that word?\" They cite evidence and evaluate each other's reasoning."
+        }
+      }
+    }
+  };
+
+  let currentGrade = "9";
+  let saveTimeout = null;
+
+  // Storage abstraction — uses window.storage (Claude) with localStorage fallback
+  const store = {
+    async get(key) {
+      try {
+        if (window.storage && typeof window.storage.get === 'function') {
+          return await window.storage.get(key);
+        }
+      } catch(e) {}
+      try {
+        const val = localStorage.getItem(key);
+        return val ? { key, value: val } : null;
+      } catch(e) { return null; }
+    },
+    async set(key, value) {
+      try {
+        if (window.storage && typeof window.storage.set === 'function') {
+          return await window.storage.set(key, value);
+        }
+      } catch(e) {}
+      try { localStorage.setItem(key, value); return { key, value }; }
+      catch(e) { return null; }
+    },
+    async del(key) {
+      try {
+        if (window.storage && typeof window.storage.delete === 'function') {
+          return await window.storage.delete(key);
+        }
+      } catch(e) {}
+      try { localStorage.removeItem(key); return { key, deleted: true }; }
+      catch(e) { return null; }
+    }
+  };
+
+  function showSaved() {
+    const el = document.getElementById('saveStatus');
+    el.classList.add('visible');
+    setTimeout(() => el.classList.remove('visible'), 2000);
+  }
+
+  async function savePlan(strand) {
+    const key = 'plan:g' + currentGrade + ':' + strand;
+    const data = {};
+    const textareas = document.querySelectorAll('[data-strand="' + strand + '"][data-grade="' + currentGrade + '"]');
+    textareas.forEach(ta => { data[ta.dataset.qindex] = ta.value; });
+    const result = await store.set(key, JSON.stringify(data));
+    if (result) showSaved();
+  }
+
+  async function loadPlan(strand) {
+    const key = 'plan:g' + currentGrade + ':' + strand;
+    const result = await store.get(key);
+    if (result && result.value) {
+      try {
+        const data = JSON.parse(result.value);
+        const textareas = document.querySelectorAll('[data-strand="' + strand + '"][data-grade="' + currentGrade + '"]');
+        textareas.forEach(ta => { if (data[ta.dataset.qindex]) ta.value = data[ta.dataset.qindex]; });
+      } catch(e) {}
+    }
+  }
+
+  function navigateToPage(pageId) {
+    navItems.forEach(n => n.classList.remove('active'));
+    document.querySelector('[data-page="' + pageId + '"]').classList.add('active');
+    pages.forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    document.querySelector('.main').scrollTo(0, 0);
+    window.scrollTo(0, 0);
+  }
+
+  function renderPlanning() {
+    const container = document.getElementById('planContent');
+    let html = '';
+    for (const [sk, strand] of Object.entries(planData)) {
+      const gd = strand.grades[currentGrade];
+      if (!gd) continue;
+      html += '<div class="plan-strand">';
+      html += '<div class="plan-strand-header" data-strand-toggle="' + sk + '">';
+      html += '<h3>' + strand.title + ' <span style="font-size:12px;color:var(--mid);font-weight:400;font-family:var(--font-sans);">(<a href="#" class="rationale-page-link" data-target="' + strand.page + '" style="color:var(--teal-dark);text-decoration:none;">see full rationale</a>)</span></h3>';
+      html += '<span class="toggle">▾</span></div>';
+      html += '<div class="plan-strand-body" id="planBody-' + sk + '">';
+      gd.questions.forEach((q, i) => {
+        const rId = sk + '-' + currentGrade + '-r' + i;
+        html += '<div class="plan-question">';
+        html += '<label>' + q.text + '</label>';
+        html += '<span class="plan-rationale-toggle" data-rationale="' + rId + '">▸ Why this question?</span>';
+        html += '<div class="plan-rationale" id="' + rId + '">' + q.rationale + '<div class="std-ref">' + q.std + '</div></div>';
+        html += '<textarea data-strand="' + sk + '" data-grade="' + currentGrade + '" data-qindex="q' + i + '" placeholder="Your notes..."></textarea>';
+        html += '</div>';
+      });
+      html += '<div class="plan-depth-anchor"><strong>Depth anchor:</strong> ' + gd.anchor + '</div>';
+      html += '</div></div>';
+    }
+    container.innerHTML = html;
+
+    document.querySelectorAll('.plan-strand-header').forEach(h => {
+      h.addEventListener('click', (e) => {
+        if (e.target.classList.contains('rationale-page-link')) return;
+        const k = h.dataset.strandToggle;
+        document.getElementById('planBody-' + k).classList.toggle('open');
+        h.classList.toggle('open');
+      });
+    });
+    document.querySelectorAll('.plan-rationale-toggle').forEach(t => {
+      t.addEventListener('click', () => {
+        const el = document.getElementById(t.dataset.rationale);
+        el.classList.toggle('open');
+        t.textContent = el.classList.contains('open') ? '▾ Why this question?' : '▸ Why this question?';
+      });
+    });
+    document.querySelectorAll('.rationale-page-link').forEach(l => {
+      l.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); navigateToPage(l.dataset.target); });
+    });
+    document.querySelectorAll('#planContent textarea').forEach(ta => {
+      ta.addEventListener('input', () => {
+        clearTimeout(saveTimeout);
+        saveTimeout = setTimeout(() => savePlan(ta.dataset.strand), 800);
+      });
+    });
+    for (const sk of Object.keys(planData)) loadPlan(sk);
+  }
+
+  document.querySelectorAll('.grade-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.grade-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentGrade = btn.dataset.grade;
+      renderPlanning();
+    });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', async () => {
+    if (!confirm('Clear all planning notes for Grade ' + currentGrade + '? This cannot be undone.')) return;
+    for (const sk of Object.keys(planData)) {
+      await store.del('plan:g' + currentGrade + ':' + sk);
+    }
+    renderPlanning();
+  });
+
+  renderPlanning();
+
+  document.getElementById('overviewPlanCta').addEventListener('click', () => {
+    navigateToPage('planning');
+  });
+</script>
+</body>
+</html>
